@@ -51,13 +51,13 @@ export class AppComponent implements OnInit {
       //   classes: ''
       // });
       console.log('A new version is ready to download..');
-      this.http.get('https://github.com/samCrock/cereal-2/raw/win-build/Cereal_Setup.exe',
+      this.http.get('https://github.com/samCrock/cereal-3/raw/win-build/Cereal.exe',
         { responseType: 'arraybuffer', reportProgress: true, observe: 'events' }).subscribe((event: any) => {
         if (event.type === HttpEventType.DownloadProgress) {
           this.updateProgress = Math.round(event['loaded'] / event['total'] * 100);
         }
         if (event.body) {
-          const installerPath = this.path.join(this.app.getPath('appData'), 'Cereal', 'Update_installer.exe');
+          const installerPath = this.path.join(this.app.getPath('appData'), 'Cereal.exe');
           console.log('File is ready:', installerPath);
 
           this.fs.appendFileSync(installerPath, Buffer.from(event.body));
