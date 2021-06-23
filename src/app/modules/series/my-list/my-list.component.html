@@ -1,0 +1,15 @@
+<ion-content class="ion-padding">
+
+  <ion-grid style="margin-top: 40px;">
+    <ion-row class="ion-justify-content-center">
+      <ion-col *ngFor="let s of shows" class="card-container ion-margin-bottom" size="auto">
+        <app-preview-card [show]="s"></app-preview-card>
+      </ion-col>
+      <ion-col class="no-results" *ngIf="shows && !shows.length">
+        <ion-title class="ion-no-padding" >Looks like your list is empty!</ion-title>
+        <ion-card-subtitle class="ion-padding-top">Go to discovery section and start watching a show to add it to your list</ion-card-subtitle>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

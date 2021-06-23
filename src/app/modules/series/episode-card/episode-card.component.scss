@@ -1,0 +1,165 @@
+
+app-episode-card {
+
+  ion-card {
+    height: 100%;
+    background-size: cover !important;
+  }
+
+  ion-card-title {
+    font-size: 48px;
+
+    span {
+      margin-left: 2rem;
+      font-size: 20px;
+      opacity: .9;
+    }
+  }
+
+  ion-button {
+    cursor: pointer;
+    transition: transform 500ms;
+  }
+
+  ion-card-subtitle {
+    font-size: 24px;
+  }
+
+  ion-row {
+    flex-wrap: nowrap;
+  }
+
+  img {
+    &:after {
+      width: inherit;
+      height: inherit;
+      background: linear-gradient(to top, rgba(0, 0, 0, .9), transparent);
+      z-index: 0;
+      position: absolute;
+      content: " ";
+      top: 0;
+      left: 0;
+    }
+  }
+
+  ion-select::part(icon) {
+    opacity: 1;
+    margin-left: 1em;
+    transform: scale(1.4);
+  }
+
+  ion-select::part(text) {
+    font-size: 30px;
+  }
+
+
+  .episode-container {
+    position: relative;
+    transition: transform 500ms;
+    width: 400px;
+    margin-right: 16px;
+    height: calc(400px * .56);
+    background-size: cover;
+
+    .info-row {
+      position: absolute;
+      width: calc(100% - 13px);
+      //bottom: 20px;
+      bottom: 0;
+      left: 8px;
+      font-size: 20px;
+      font-weight: 800;
+      z-index: 1;
+    }
+
+    .play-button {
+      position: absolute;
+      left: calc(50% - 35px);
+      top: calc(50% - 48px);
+      background: transparent;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      z-index: 1;
+      --border-radius: 50%;
+      --background: transparent;
+      border: 2px solid white;
+
+      &:hover {
+        transform: scale(1.4);
+        z-index: 1;
+      }
+
+      & ion-icon {
+        background: transparent;
+        color: var(--ion-color-light-contrast);
+      }
+    }
+
+  }
+
+  .progress-bar {
+    bottom: -220px;
+  }
+
+  .ready {
+    font-size: 12px;
+    color: #29c467;
+  }
+
+  .delete-button {
+    padding: 0 8px;
+    margin-left: 4px;
+  }
+
+  .progress-tracker {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, .9);
+
+    span {
+      font-size: 20px;
+    }
+  }
+
+  .speed-tracker {
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    color: rgba(255, 255, 255, .9);
+
+    label {
+      display: inline-block;
+      min-width: 40px;
+      text-align: end;
+      margin-right: 4px;
+      line-height: 44px;
+      margin-top: 1px;
+    }
+
+    span {
+      font-size: 12px;
+    }
+  }
+
+  .extra-container {
+    width: 400px;
+    //height: calc(100vh - 660px);
+    padding: 12px;
+    background: rgba(0,0,0,.7);
+    //position: absolute;
+    transform: translateY(0px);
+    transition: transform 500ms;
+  }
+
+  h2 {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+  }
+
+  h5 {
+    font-size: 12px !important;
+    line-height: 21px;
+  }
+
+}

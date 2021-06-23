@@ -1,0 +1,10 @@
+{
+  "/eztv.*": {
+    "target": "'https://eztv.unblockit.li/search",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/eztv": ""
+    }
+  }
+}
