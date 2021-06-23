@@ -43,8 +43,8 @@ function checkUpdates() {
           remoteVersion = JSON.parse(data.body).version;
           console.log('Remote version:', remoteVersion);
           console.log('Local version:', app.getVersion());
-          // global['update'] = remoteVersion !== app.getVersion();
-          global['update'] = true;
+          global['update'] = remoteVersion !== app.getVersion();
+          // global['update'] = true;
           resolve(1);
         });
     } catch (e) {
@@ -80,11 +80,10 @@ function createWindow() {
   }
 
   console.log(`Node Environment: ${process.env.NODE_ENV}`)
-  win.webContents.openDevTools();
 
-  // if (process.env.NODE_ENV === 'development') {
-  //   win.webContents.openDevTools();
-  // }
+  if (process.env.NODE_ENV === 'development') {
+    win.webContents.openDevTools();
+  }
 
   // Emitted when the window is closed.
   win.on('closed', () => {
