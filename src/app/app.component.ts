@@ -44,13 +44,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     if (this.update) {
-      // Materialize.toast({
-      //   html: 'There\'s a new version of Cereal',
-      //   displayLength: 2000,
-      //   inDuration: 600,
-      //   outDuration: 400,
-      //   classes: ''
-      // });
       console.log('A new version is ready to download..');
       this.http.get('https://github.com/samCrock/cereal-3/raw/win-build/Cereal.exe',
         { responseType: 'arraybuffer', reportProgress: true, observe: 'events' }).subscribe(async (event: any) => {
@@ -71,13 +64,6 @@ export class AppComponent implements OnInit {
 
           this.updateReady = true;
           delete this.updateProgress;
-          // Materialize.toast({
-          //   html: 'The new version is now ready. Restart Cereal to upgrade!',
-          //   displayLength: 2000,
-          //   inDuration: 600,
-          //   outDuration: 400,
-          //   classes: ''
-          // });
         }
       });
     }

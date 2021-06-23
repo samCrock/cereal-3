@@ -21,7 +21,7 @@ app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors');
 
 const installerPath = path.join(app.getPath('downloads'), 'Cereal.exe');
 
-const { ipcMain } = require('electron')
+const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
   event.reply('asynchronous-reply', 'pong')
@@ -34,23 +34,23 @@ ipcMain.on('synchronous-message', (event, arg) => {
 
 function checkUpdates() {
   return new Promise((resolve, reject) => {
-      try {
-        request({url: 'https://raw.githubusercontent.com/samCrock/cereal-3/master/package.json'},
-          function(err, data) {
-            if (err) {
-              resolve(1);
-            }
-            remoteVersion = JSON.parse(data.body).version;
-            console.log('Remote version:', remoteVersion);
-            console.log('Local version:', app.getVersion());
-            // global['update'] = remoteVersion !== app.getVersion();
-            global['update'] = true;
+    try {
+      request({url: 'https://raw.githubusercontent.com/samCrock/cereal-3/master/package.json'},
+        function (err, data) {
+          if (err) {
             resolve(1);
-          });
-      } catch (e) {
-        console.log('Cannot perform request', e);
-        resolve(0);
-      }
+          }
+          remoteVersion = JSON.parse(data.body).version;
+          console.log('Remote version:', remoteVersion);
+          console.log('Local version:', app.getVersion());
+          // global['update'] = remoteVersion !== app.getVersion();
+          global['update'] = true;
+          resolve(1);
+        });
+    } catch (e) {
+      console.log('Cannot perform request', e);
+      resolve(0);
+    }
   })
 }
 
@@ -97,21 +97,13 @@ function createWindow() {
 
 try {
   app.on('ready', () => {
-      if (fs.existsSync(updateCheckPath)) {
-        fs.unlinkSync(updateCheckPath);
-        fs.unlink(installerPath, function(d) {
-          console.log('Update completed!');
-          createWindow();
-        });
-      } else {
-        console.log('Checking updates..');
-        checkUpdates().then(code => {
-          console.log('Exit code:', code);
-          createWindow();
-        }, error => {
-          console.log('Updater error:', error);
-        });
-      }
+      console.log('Checking updates..');
+      checkUpdates().then(code => {
+        console.log('Exit code:', code);
+        createWindow();
+      }, error => {
+        console.log('Updater error:', error);
+      });
     }
   );
   // Quit when all windows are closed.
