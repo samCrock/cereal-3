@@ -36,16 +36,16 @@ ipcMain.on('synchronous-message', (event, arg) => {
 function checkUpdates() {
   return new Promise((resolve, reject) => {
     if (fs.existsSync(installerPath)) {
-      console.log('Executing updater..');
-      spawn(installerPath, [process.argv], {
-        cwd: process.cwd(),
-        env: process.env,
-        detached: true,
-        stdio: 'ignore'
-      });
-      fs.writeFile(updateCheckPath, '', function(err) {
-        process.kill(process.pid);
-      });
+    //   console.log('Executing updater..');
+    //   spawn(installerPath, [process.argv], {
+    //     cwd: process.cwd(),
+    //     env: process.env,
+    //     detached: true,
+    //     stdio: 'ignore'
+    //   });
+    //   fs.writeFile(updateCheckPath, '', function(err) {
+    //     process.kill(process.pid);
+    //   });
     } else {
       try {
         request({url: 'https://raw.githubusercontent.com/samCrock/cereal-3/master/package.json'},
@@ -56,8 +56,8 @@ function checkUpdates() {
             remoteVersion = JSON.parse(data.body).version;
             console.log('Remote version:', remoteVersion);
             console.log('Local version:', app.getVersion());
-            // global['update'] = remoteVersion !== app.getVersion();
-            global['update'] = true;
+            global['update'] = remoteVersion !== app.getVersion();
+            // global['update'] = true;
             resolve(1);
           });
       } catch (e) {
