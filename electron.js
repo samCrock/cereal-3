@@ -19,7 +19,7 @@ const serve = args.some(val => val === '--serve')
 
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors');
 
-const installerPath = path.join(app.getPath('appData'), 'Cereal', 'Update_installer.exe');
+const installerPath = path.join(app.getPath('appData'), 'Cereal', 'Cereal.exe');
 const updateCheckPath = path.join(app.getPath('appData'), 'Cereal', '_updating');
 
 const { ipcMain } = require('electron')
@@ -49,7 +49,7 @@ function checkUpdates() {
       });
     } else {
       try {
-        request({url: 'https://raw.githubusercontent.com/samCrock/cereal-2/master/package.json'},
+        request({url: 'https://raw.githubusercontent.com/samCrock/cereal-3/master/package.json'},
           function(err, data) {
             if (err) {
               resolve(1);
