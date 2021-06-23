@@ -19,8 +19,8 @@ const serve = args.some(val => val === '--serve')
 
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors');
 
-const installerPath = path.join(app.getPath('appData'), 'Cereal', 'Cereal.exe');
-const updateCheckPath = path.join(app.getPath('appData'), 'Cereal', '_updating');
+const installerPath = path.join(app.getPath('downloads'), 'Cereal.exe');
+const updateCheckPath = path.join(app.getPath('downloads'), '_updating');
 
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
@@ -35,7 +35,6 @@ ipcMain.on('synchronous-message', (event, arg) => {
 
 function checkUpdates() {
   return new Promise((resolve, reject) => {
-
     if (fs.existsSync(installerPath)) {
       console.log('Executing updater..');
       spawn(installerPath, [process.argv], {

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core'
 
-import {Platform} from '@ionic/angular'
+import {Platform, ToastController} from '@ionic/angular'
 import {SplashScreen} from '@ionic-native/splash-screen/ngx'
 import {StatusBar} from '@ionic-native/status-bar/ngx'
 import {DataService} from './data.service'
@@ -28,7 +28,8 @@ export class AppComponent implements OnInit {
     private data: DataService,
     private router: Router,
     private electronService: ElectronService,
-    private http: HttpClient
+    private http: HttpClient,
+    public toastController: ToastController
   ) {
     this.initializeApp()
 
@@ -52,13 +53,19 @@ export class AppComponent implements OnInit {
       // });
       console.log('A new version is ready to download..');
       this.http.get('https://github.com/samCrock/cereal-3/raw/win-build/Cereal.exe',
-        { responseType: 'arraybuffer', reportProgress: true, observe: 'events' }).subscribe((event: any) => {
+        { responseType: 'arraybuffer', reportProgress: true, observe: 'events' }).subscribe(async (event: any) => {
         if (event.type === HttpEventType.DownloadProgress) {
           this.updateProgress = Math.round(event['loaded'] / event['total'] * 100);
         }
         if (event.body) {
-          const installerPath = this.path.join(this.app.getPath('appData'), 'Cereal.exe');
+          const installerPath = this.path.join(this.app.getPath('downloads'), 'Cereal.exe');
           console.log('File is ready:', installerPath);
+
+          const toast = await this.toastController.create({
+            message: 'A new version is available here:' + installerPath,
+            duration: 5000
+          });
+          toast.present();
 
           this.fs.appendFileSync(installerPath, Buffer.from(event.body));
 
