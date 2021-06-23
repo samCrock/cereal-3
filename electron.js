@@ -20,7 +20,6 @@ const serve = args.some(val => val === '--serve')
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors');
 
 const installerPath = path.join(app.getPath('downloads'), 'Cereal.exe');
-const updateCheckPath = path.join(app.getPath('downloads'), '_updating');
 
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
@@ -35,18 +34,6 @@ ipcMain.on('synchronous-message', (event, arg) => {
 
 function checkUpdates() {
   return new Promise((resolve, reject) => {
-    if (fs.existsSync(installerPath)) {
-    //   console.log('Executing updater..');
-    //   spawn(installerPath, [process.argv], {
-    //     cwd: process.cwd(),
-    //     env: process.env,
-    //     detached: true,
-    //     stdio: 'ignore'
-    //   });
-    //   fs.writeFile(updateCheckPath, '', function(err) {
-    //     process.kill(process.pid);
-    //   });
-    } else {
       try {
         request({url: 'https://raw.githubusercontent.com/samCrock/cereal-3/master/package.json'},
           function(err, data) {
@@ -56,18 +43,15 @@ function checkUpdates() {
             remoteVersion = JSON.parse(data.body).version;
             console.log('Remote version:', remoteVersion);
             console.log('Local version:', app.getVersion());
-            global['update'] = remoteVersion !== app.getVersion();
-            // global['update'] = true;
+            // global['update'] = remoteVersion !== app.getVersion();
+            global['update'] = true;
             resolve(1);
           });
       } catch (e) {
         console.log('Cannot perform request', e);
         resolve(0);
       }
-
-    }
-  });
-
+  })
 }
 
 function createWindow() {
@@ -98,9 +82,9 @@ function createWindow() {
   console.log(`Node Environment: ${process.env.NODE_ENV}`)
   win.webContents.openDevTools();
 
-  if (process.env.NODE_ENV === 'development') {
-    win.webContents.openDevTools();
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   win.webContents.openDevTools();
+  // }
 
   // Emitted when the window is closed.
   win.on('closed', () => {
