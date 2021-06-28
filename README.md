@@ -1,5 +1,5 @@
-# Polyonic
-## The ultimate "Universal Web App" 
+# Cereal
+## Strean tv shows + movies 
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![devDependencies Status](https://david-dm.org/paulsutherland/Polyonic/dev-status.svg)](https://david-dm.org/paulsutherland/Polyonic?type=dev)
@@ -8,24 +8,6 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badge/)
 
 > Now using Ionic 5, Electron 11 and Angular 11 :tada:. See here for [Ionic 1](https://github.com/paulsutherland/Polyonic/tree/Ionic1) and [Ionic 3](https://github.com/paulsutherland/Polyonic/tree/Ionic3).
-
-## Build once using web technologies and deploy everywhere!
-
-Polyonic is an Electron Ionic application shell for creating Web Apps, Progressive Mobile Web Apps, Native Mobile Apps and Desktop Apps.
-
-This project combines the [Electron Framework](http://electron.atom.io/) with the [Ionic Framework](https://ionicframework.com/) and provides a starter for building out an app that can run on either the desktop (macOS, Windows and Linux), a browser or mobile devices (iOS and Android).  You can use this application to build and run on one or all of these platforms.
-
-## Motivation
-
-When working in small teams creating web and mobile applications, it is difficult and time consuming for new team members to pick up the different technologies for each platform. I have also been asked a few questions that motivated me to try Polyonic out:
-
-- Is there a way to run this mobile app on the desktop?
-- Can we cache more in the browser for offline working?
-- Can we have one Universal app that can run on the desktop, mobile, web and Office 365?
-
-These questions made me think about the limitations of the browser for off-line editing and caching and was there a way to create a package that can be used to flesh out any app we require, whilst reducing the overhead of having to learn numerous libraries and frameworks for each platform.
-
-And that is why I decided to try combining Electron and Ionic. Is it wise to have a universal app using a mobile framework? Probably not, but it is fun :wink:
 
 ## Quick start
 
@@ -38,18 +20,6 @@ Make sure you have [node installed and running](https://nodejs.org/en/download/)
 ```node
 npm install -g ionic@latest cordova@latest
 ```
-
-Clone the repo, change into the Polyonic directory, install the npm packages and run the Electron app
-
-```node
-git clone --depth 1 https://github.com/paulsutherland/Polyonic
-cd Polyonic
-
-npm install
-npm run electron:dev
-```
-
-You now have Electron and Ionic running as a Desktop app.
 
 ## Running live reload for development
 
