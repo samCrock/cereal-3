@@ -15,6 +15,7 @@ import {HttpClient, HttpEventType} from '@angular/common/http';
 export class AppComponent implements OnInit {
 
     private update = this.electronService.remote.getGlobal('update');
+    private remoteVersion = this.electronService.remote.getGlobal('remoteVersion');
     public updateProgress: number;
     public updateReady: boolean;
     public fs = this.electronService.remote.getGlobal('fs');
@@ -45,14 +46,14 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         if (this.update) {
             console.log('A new version is ready to download..');
-            this.http.get('https://github.com/samCrock/cereal-3/raw/win-build/Cereal.exe',
+            this.http.get('https://github.com/samCrock/cereal-3/raw/win-build/Cereal Setup ' + this.remoteVersion + '.exe',
                 {responseType: 'arraybuffer', reportProgress: true, observe: 'events'})
                 .subscribe(async (event: any) => {
                     if (event.type === HttpEventType.DownloadProgress) {
                         this.updateProgress = Math.round(event['loaded'] / event['total'] * 100);
                     }
                     if (event.body) {
-                        const installerPath = this.path.join(this.app.getPath('downloads'), 'Cereal.exe');
+                        const installerPath = this.path.join(this.app.getPath('downloads'), 'Cereal Setup ' + this.remoteVersion + '.exe');
                         console.log('File is ready:', installerPath);
 
                         const toast = await this.toastController.create({

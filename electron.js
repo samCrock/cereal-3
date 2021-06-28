@@ -44,6 +44,8 @@ function checkUpdates() {
           console.log('Remote version:', remoteVersion);
           console.log('Local version:', app.getVersion());
           global['update'] = remoteVersion !== app.getVersion();
+          global['remoteVersion'] = remoteVersion;
+
           // global['update'] = true;
           resolve(1);
         });
