@@ -17,6 +17,11 @@ let win
 const args = process.argv.slice(1)
 const serve = args.some(val => val === '--serve')
 
+process.on('uncaughtException', (error) => {
+  // Handle the error
+  console.log(error)
+})
+
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors');
 
 const installerPath = path.join(app.getPath('downloads'), 'Cereal.exe');
