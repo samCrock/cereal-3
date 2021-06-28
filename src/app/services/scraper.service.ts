@@ -132,9 +132,15 @@ export class ScraperService {
 
   public fetchEpisodeTorrents(watching): Observable<any> {
     // const url = 'https://eztv.unblockit.li/search/' + watching.show_title + '-' + watching.season_label + watching.episode_label
+    let url = ''
     const eztvShowId = this.eztvShowsList.filter(s => s.text === watching.show_title)[0]?.id
-    const url = 'https://eztv.unblockit.li/search/?q1=' + watching.season_label + watching.episode_label +
-      '&q2=' + eztvShowId + '&search=Search'
+    if (eztvShowId) {
+      url = 'https://eztv.unblockit.li/search/?q1=' + watching.season_label + watching.episode_label +
+        '&q2=' + eztvShowId + '&search=Search'
+    } else {
+      url = 'https://eztv.unblockit.li/search/' + watching.season_label + watching.episode_label + '-' +
+        watching.show_title.replaceAll(' ', '-')
+    }
 
     console.log('Search torrent for', url)
 
