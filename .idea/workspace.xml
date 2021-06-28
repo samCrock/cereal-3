@@ -1,11 +1,211 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a375e62-a128-4171-94b9-ade91653fbda" name="Default Changelist" comment="" />
+    <list default="true" id="5aee1d96-a036-44ec-a0cc-4b97f51fd579" name="Default Changelist" comment="Removed unoptimized installer">
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/cereal-3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e/protractor.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e/src/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e/src/app.po.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e/tsconfig.e2e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron-builder.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ionic.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy.conf.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-hdpi-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-ldpi-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-mdpi-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xhdpi-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxhdpi-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxxhdpi-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/xml/network_security_config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/electron/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/electron/icons/512x512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/electron/icons/64x64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/electron/linux/DEBIAN/control" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/electron/linux/app.desktop" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/electron/osx/dmg-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/electron/osx/dmg-background@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/electron/osx/dmg-icon.icns" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/electron/osx/icon.icns" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/electron/polyonic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/electron/polyonic.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/electron/windows/icon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/electron/windows/installer.nsi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/electron/windows/setup-banner.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/electron/windows/setup-icon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/icon.png.md5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-20@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-20@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-24@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-27.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-29@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-29@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-44@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-50@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-72.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-72@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-76.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-76@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-83.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-86@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-98@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-2436h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-736h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape-2436h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape-736h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape@2x~ipad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape@~ipadpro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape~ipad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@~ipadpro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default@2x~universal~anyany.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/splash.png.md5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/data.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/data.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/electron.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/electron.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/events.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/events.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/interceptor.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/models/episode.interface.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/models/season.interface.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/models/show.interface.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/movies/movies.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/movies/movies.page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/movies/movies.page.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/movies/movies.page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/player/player.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/player/player.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/player/player.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/player/player.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/calendar/calendar.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/calendar/calendar.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/calendar/calendar.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/calendar/calendar.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/discover/discover.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/discover/discover.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/discover/discover.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/discover/discover.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/episode-card/episode-card.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/episode-card/episode-card.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/episode-card/episode-card.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/episode-card/episode-card.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/my-list/my-list.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/my-list/my-list.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/my-list/my-list.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/my-list/my-list.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/series-detail/series-detail.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/series-detail/series-detail.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/series-detail/series-detail.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/series-detail/series-detail.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/series.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/series.page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/series.page.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/series/series.page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/shared/components/preview-card/preview-card.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/shared/components/preview-card/preview-card.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/shared/components/preview-card/preview-card.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/shared/components/preview-card/preview-card.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/shared/pipes/date-ago.pipe.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/shared/shared.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/tabs/tabs.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/tabs/tabs.page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/tabs/tabs.page.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/tabs/tabs.page.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/tabs/tabs.page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/tabs/tabs.router.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/scraper.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/torrent.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Rubik-Black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Rubik-BlackItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Rubik-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Rubik-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Rubik-ExtraBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Rubik-ExtraBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Rubik-Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Rubik-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Rubik-LightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Rubik-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Rubik-MediumItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Rubik-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Rubik-SemiBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Rubik-SemiBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icon/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/pics/imdb_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/placeholders/cover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/shapes.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/global.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/theme/variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tslint.json" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="origin/win-build" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -138,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624466541687</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Removed unoptimized installer">
+      <created>1624872924546</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1624872924546</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +367,7 @@
     <MESSAGE value="Edited update logic" />
     <MESSAGE value="First build" />
     <MESSAGE value="Version test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version test" />
+    <MESSAGE value="Removed unoptimized installer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unoptimized installer" />
   </component>
 </project>
