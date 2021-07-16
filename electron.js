@@ -4,15 +4,13 @@ const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const webtorrent = require('webtorrent')
 const fs = require('fs');
-const request = require('request');
+const fetch = require('node-fetch');
 
 global['wt'] = new webtorrent();
 global['path'] = path;
 global['app'] = app;
 global['fs'] = fs;
 global['shell'] = electron.shell;
-
-
 
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = true
 let win
@@ -50,18 +48,17 @@ ipcMain.on('synchronous-message', (event, arg) => {
 function checkUpdates() {
   return new Promise((resolve, reject) => {
     try {
-      request({url: 'https://raw.githubusercontent.com/samCrock/cereal-3/master/package.json'},
-        function (err, data) {
-          if (err) {
-            resolve(1);
-          }
-          remoteVersion = JSON.parse(data.body).version;
+      fetch('https://raw.githubusercontent.com/samCrock/cereal-3/master/package.json')
+        .then(res => res.json())
+        .then(json => {
+          const remoteVersion = json.version;
           console.log('Remote version:', remoteVersion);
           console.log('Local version:', app.getVersion());
           global['update'] = remoteVersion !== app.getVersion();
           global['remoteVersion'] = remoteVersion;
-
-          // global['update'] = true;
+          resolve(1);
+        })
+        .catch(err => {
           resolve(1);
         });
     } catch (e) {

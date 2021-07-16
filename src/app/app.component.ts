@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.update || true) {
+    if (this.update) {
       console.log('A new version is ready to download..');
       this.http.get('https://github.com/samCrock/cereal-3/raw/win-build/Cereal Setup ' + this.remoteVersion + '.exe',
         {responseType: 'arraybuffer', reportProgress: true, observe: 'events'})
