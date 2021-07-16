@@ -90,6 +90,7 @@ function createWindow() {
   if (serve) {
     win.loadURL('http://localhost:4200')
   } else {
+    console.log(`file://${__dirname}/www/index.html`);
     win.loadURL(`file://${__dirname}/www/index.html`)
   }
 

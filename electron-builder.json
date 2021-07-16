@@ -33,7 +33,7 @@
     ]
   },
   "squirrelWindows": {
-    "msi":"true"
+    "msi": "true"
   },
   "msi" : {
     "warningsAsErrors": false
