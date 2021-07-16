@@ -12,21 +12,31 @@ global['app'] = app;
 global['fs'] = fs;
 global['shell'] = electron.shell;
 
+
+
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = true
 let win
 const args = process.argv.slice(1)
 const serve = args.some(val => val === '--serve')
+const installerPath = path.join(app.getPath('downloads'), 'Cereal.exe');
+const {ipcMain} = require('electron')
 
 process.on('uncaughtException', (error) => {
-  // Handle the error
-  console.log(error)
+  console.log('HANDLED EXCEPTION ->', error)
+})
+
+electron.dialog.showErrorBox = (title, content) => {
+  console.log(`${title}\n${content}`);
+};
+
+process.on('unhandledRejection', (error) => {
+  console.log('HANDLED REJECTION ->', error)
 })
 
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors');
 
-const installerPath = path.join(app.getPath('downloads'), 'Cereal.exe');
+ipcMain.removeAllListeners('ELECTRON_BROWSER_WINDOW_ALERT')
 
-const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
   event.reply('asynchronous-reply', 'pong')
@@ -88,7 +98,7 @@ function createWindow() {
 
   console.log(`Node Environment: ${process.env.NODE_ENV}`)
 
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV) {
     win.webContents.openDevTools();
   }
 
