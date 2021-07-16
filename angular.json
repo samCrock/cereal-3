@@ -71,7 +71,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "outputPath": "",
+              "outputPath": "www",
               "index": "",
               "main": "",
               "tsConfig": ""
