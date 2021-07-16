@@ -4,7 +4,6 @@ import {TorrentService} from '../../services/torrent.service';
 import {Router} from '@angular/router';
 import {ElectronService} from 'ngx-electron';
 import {DomSanitizer} from '@angular/platform-browser';
-import videojs from 'video.js';
 
 @Component({
   selector: 'app-player',
@@ -19,8 +18,6 @@ export class PlayerComponent implements OnInit {
   private fs
   private shell
   player
-  videoSrc
-  videoJsPlayer: videojs.Player;
 
   constructor(
     private scraperService: ScraperService,

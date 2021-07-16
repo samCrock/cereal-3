@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnDestroy, OnInit, Output, EventEmitter, ViewEncapsulation} from '@angular/core';
 import * as moment from 'moment';
 import {TorrentService} from '../../../services/torrent.service';
 import {ElectronService} from 'ngx-electron';
@@ -15,11 +15,13 @@ export class EpisodeCardComponent implements OnInit, OnDestroy {
 
   @Input() episode: any
   @Input() show: any
+  @Input() isCurrentEpisode: boolean
   private path
   private app
   private fs
   private shell
   public torrent
+  selected: boolean
   opened = false
   loading = false
   downloading = false

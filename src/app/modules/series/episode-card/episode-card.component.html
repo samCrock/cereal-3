@@ -1,4 +1,4 @@
-<div style="position: relative" [id]="'episode-' + episode.number">
+<ion-row [id]="'episode-' + episode.number" class="main-container" [ngClass]="{ 'current': isCurrentEpisode }">
 
   <div class="episode-container"
        [ngStyle]="{'background': episode.cover ?
@@ -17,29 +17,36 @@
         </ion-row>
       </ion-col>
       <ion-col size="5" class="speed-tracker ion-align-self-center">
-        <ion-row class="ion-no-margin ion-justify-content-end">
-          <label *ngIf="downloading && speed && episode.progress !== 1">{{ speed }}<span>Mb/s</span></label>
-          <label class="ready" *ngIf="episode.progress === 1">Ready</label>
-          <ion-button fill="clear" color="danger" class="delete-button" *ngIf="episode.magnetURI" (click)="deleteTorrent()">
-            <ion-icon name="trash-outline" size="small"></ion-icon>
-          </ion-button>
-        </ion-row>
+<!--        <ion-row class="ion-no-margin ion-justify-content-end">-->
+<!--          <label *ngIf="downloading && speed && episode.progress !== 1">{{ speed }}<span>Mb/s</span></label>-->
+<!--          <label class="ready" *ngIf="episode.progress === 1">Ready</label>-->
+<!--          <ion-button fill="clear" color="danger" class="delete-button" *ngIf="episode.magnetURI" (click)="deleteTorrent()">-->
+<!--            <ion-icon name="trash-outline" size="small"></ion-icon>-->
+<!--          </ion-button>-->
+<!--        </ion-row>-->
       </ion-col>
     </ion-row>
     <ion-progress-bar class="progress-bar" [value]="progress" *ngIf="episode.progress && episode.progress !== 1"></ion-progress-bar>
   </div>
 
-  <div class="extra-container">
+  <div class="extra-container" [ngClass]="{ 'selected': opened }">
     <ion-row class="ion-justify-content-between">
       <ion-col class="ion-no-padding">
-        <h2 class="ion-padding-bottom ellipsis-1">{{ episode.title }}</h2>
+        <h2 class="ion-padding-bottom ion-padding-end">{{ episode.title }}</h2>
       </ion-col>
       <ion-col class="ion-no-padding" size="auto">
-        <h5 class="ion-padding-bottom ion-text-end">{{ episode.aired_at | dateAgo }}</h5>
+        <h4 class="ion-padding-bottom ion-text-end">{{ episode.aired_at | dateAgo }}</h4>
       </ion-col>
     </ion-row>
     <p>{{ episode.overview }}</p>
+    <ion-row class="ion-no-margin ion-justify-content-end">
+      <label class="speed" *ngIf="downloading && speed && episode.progress !== 1">{{ speed }}<span>Mb/s</span></label>
+      <label class="ready" *ngIf="episode.progress === 1">Ready</label>
+      <ion-button fill="clear" color="danger" class="delete-button" *ngIf="episode.magnetURI" (click)="deleteTorrent()">
+        <ion-icon name="trash-outline" size="small"></ion-icon>
+      </ion-button>
+    </ion-row>
   </div>
 
 
-</div>
+</ion-row>

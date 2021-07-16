@@ -52,19 +52,46 @@ app-episode-card {
     font-size: 30px;
   }
 
+  .main-container {
+    position: relative;
+    margin-bottom: 24px;
+    border: 2px solid transparent;
+    height: 140px;
+    width: 100%;
+
+    //height: calc(100vh - 420px);
+    &.current {
+      border: 2px solid rgb(155, 126, 171);
+      border-left-width: 8px;
+      margin-left: -6px;
+    }
+  }
+
+  .extra-container {
+    //width: 400px;
+    //height: calc(100% - 224px);
+    //min-height: 200px;
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 0, 0, .7);
+    transform: translateY(0px);
+    transition: transform 500ms;
+  }
+
 
   .episode-container {
     position: relative;
     transition: transform 500ms;
-    width: 400px;
-    margin-right: 16px;
-    height: calc(400px * .56);
-    background-size: cover;
+    width: 600px;
+    background-size: cover !important;
+
+    &.selected {
+      height: 100%;
+    }
 
     .info-row {
       position: absolute;
       width: calc(100% - 13px);
-      //bottom: 20px;
       bottom: 0;
       left: 8px;
       font-size: 20px;
@@ -102,7 +129,12 @@ app-episode-card {
     bottom: -220px;
   }
 
+  .speed {
+    line-height: 44px;
+  }
+
   .ready {
+    line-height: 44px;
     font-size: 12px;
     color: #29c467;
   }
@@ -142,15 +174,6 @@ app-episode-card {
     }
   }
 
-  .extra-container {
-    width: 400px;
-    //height: calc(100vh - 660px);
-    padding: 12px;
-    background: rgba(0,0,0,.7);
-    //position: absolute;
-    transform: translateY(0px);
-    transition: transform 500ms;
-  }
 
   h2 {
     font-size: 18px !important;

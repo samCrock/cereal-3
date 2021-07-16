@@ -32,10 +32,11 @@ export class SeriesDetailComponent implements OnInit {
           if (dbShow) {
             this.currentSeason = dbShow.currentSeason ? dbShow.currentSeason : this.currentSeason
             this.currentEpisode = dbShow.currentEpisode ? dbShow.currentEpisode : this.currentEpisode
+            console.log('currentEpisode', this.currentEpisode)
           }
         this.scraperService.fetchSeriesById(params['id'])
           .subscribe(async show => {
-            console.log('Show', show);
+            console.log('Show', show)
             this.show = show
             this.show.poster = 'https://img.reelgood.com/content/show/' + show.id + '/poster-780.jpg'
             this.seasonsArray = new Array(show.season_count)
@@ -61,11 +62,12 @@ export class SeriesDetailComponent implements OnInit {
             setTimeout(() => {
               const currentEpisodeCard = document.getElementById('episode-' + this.currentEpisode)
               const seasonRow = document.getElementById(this.season.id)
-              console.log('Scroll to currentEpisode', currentEpisodeCard.getBoundingClientRect().x)
+              console.log('Scroll to currentEpisode', currentEpisodeCard.getBoundingClientRect().y)
               seasonRow.scrollTo({
-                top: 0,
-                left: currentEpisodeCard.getBoundingClientRect().x - 28,
-                behavior: 'smooth'
+                top: currentEpisodeCard.getBoundingClientRect().y - 420,
+                // left: currentEpisodeCard.getBoundingClientRect().x - 28,
+                left: 0,
+                behavior: 'auto'
               })
             })
           }
@@ -77,8 +79,8 @@ export class SeriesDetailComponent implements OnInit {
     const seasonRow = document.getElementById(seasonId)
     const factor = forward ? 1 : -1;
     seasonRow.scrollTo({
-      top: 0,
-      left: seasonRow.scrollLeft + factor * 416 * Math.floor(seasonRow.getBoundingClientRect().width / 400),
+      left: 0,
+      top: seasonRow.scrollTop + factor * (140 + 24) * 2,
       behavior: 'smooth'
     })
   }
