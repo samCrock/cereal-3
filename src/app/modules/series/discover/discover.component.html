@@ -26,21 +26,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<div class="ion-padding-top">
 
   <ion-grid style="margin-top: 40px;">
-    <ion-row class="ion-justify-content-center">
+    <ion-row class="ion-justify-content-center scroll-container" #scroller>
       <ion-col *ngFor="let s of shows" class="card-container ion-margin-bottom" size="auto">
         <app-preview-card [show]="s"></app-preview-card>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-infinite-scroll threshold="100px" (ionInfinite)="onScroll($event)">
-    <ion-infinite-scroll-content
-      loadingSpinner="bubbles"
-      loadingText="Loading more data...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
 
-</ion-content>
+</div>

@@ -64,7 +64,7 @@ export class SeriesDetailComponent implements OnInit {
               const seasonRow = document.getElementById(this.season.id)
               console.log('Scroll to currentEpisode', currentEpisodeCard.getBoundingClientRect().y)
               seasonRow.scrollTo({
-                top: currentEpisodeCard.getBoundingClientRect().y - 420,
+                top: currentEpisodeCard.getBoundingClientRect().y - 360,
                 // left: currentEpisodeCard.getBoundingClientRect().x - 28,
                 left: 0,
                 behavior: 'auto'

@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {IShow} from '../../../models/show.interface';
 import {MenuController} from '@ionic/angular';
 import {ScraperService} from '../../../services/scraper.service';
@@ -9,8 +9,9 @@ import {ScraperService} from '../../../services/scraper.service';
   styleUrls: ['./discover.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class DiscoverComponent implements OnInit {
+export class DiscoverComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('scroller') scroller;
   public shows: IShow[];
   public searchString = ''
   public filters = {
@@ -27,6 +28,15 @@ export class DiscoverComponent implements OnInit {
 
   ngOnInit() {
     this.fetchTrending()
+  }
+
+  ngAfterViewInit() {
+    this.scroller.el.addEventListener('scroll', this.debounce(() => {
+      const scrollY = this.scroller.el.scrollHeight - this.scroller.el.scrollTop - this.scroller.el.getBoundingClientRect().height;
+      if (scrollY < 200) {
+        this.onScroll();
+      }
+    }, 300))
   }
 
   toggleMenu() {
@@ -61,7 +71,15 @@ export class DiscoverComponent implements OnInit {
       })
   }
 
-  onScroll(event) {
+  debounce(func, timeout = 300) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => { func.apply(this, args); }, timeout);
+    };
+  }
+
+  onScroll(): void {
     this.filters.page++
     this.scraperService.fetchTrendingSeries(this.filters)
       .subscribe(response => {
@@ -69,7 +87,6 @@ export class DiscoverComponent implements OnInit {
           this.shows.push(...results);
           console.log('', results)
         })
-        event.target.complete()
       })
   }
 
