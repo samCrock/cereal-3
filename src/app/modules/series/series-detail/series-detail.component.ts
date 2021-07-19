@@ -1,9 +1,10 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {DataService} from '../../../data.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ScraperService} from '../../../services/scraper.service';
 import {IShow} from '../../../models/show.interface';
 import {ISeason} from '../../../models/season.interface';
+import {Location} from '@angular/common'
 
 @Component({
   selector: 'app-series-detail',
@@ -18,22 +19,23 @@ export class SeriesDetailComponent implements OnInit {
   public currentSeason = 1
   public currentEpisode = 1
   public seasonsArray = []
+  private routerSub
 
   constructor(
     private activeRoute: ActivatedRoute,
     private data: DataService,
     private scraperService: ScraperService,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {
-
-    this.activeRoute.params.subscribe(async params => {
+    this.routerSub = this.activeRoute.params.subscribe(async params => {
       if (params['id']) {
         const dbShow = await this.data.retrieveShow(params['id'])
-          if (dbShow) {
-            this.currentSeason = dbShow.currentSeason ? dbShow.currentSeason : this.currentSeason
-            this.currentEpisode = dbShow.currentEpisode ? dbShow.currentEpisode : this.currentEpisode
-            console.log('currentEpisode', this.currentEpisode)
-          }
+        if (dbShow) {
+          this.currentSeason = dbShow.currentSeason ? dbShow.currentSeason : this.currentSeason
+          this.currentEpisode = dbShow.currentEpisode ? dbShow.currentEpisode : this.currentEpisode
+          console.log('currentEpisode', this.currentEpisode)
+        }
         this.scraperService.fetchSeriesById(params['id'])
           .subscribe(async show => {
             console.log('Show', show)
@@ -64,7 +66,7 @@ export class SeriesDetailComponent implements OnInit {
               const seasonRow = document.getElementById(this.season.id)
               console.log('Scroll to currentEpisode', currentEpisodeCard.getBoundingClientRect().y)
               seasonRow.scrollTo({
-                top: currentEpisodeCard.getBoundingClientRect().y - 400,
+                top: currentEpisodeCard.getBoundingClientRect().y - 380,
                 // left: currentEpisodeCard.getBoundingClientRect().x - 28,
                 left: 0,
                 behavior: 'auto'
@@ -86,7 +88,9 @@ export class SeriesDetailComponent implements OnInit {
   }
 
   back() {
-    window.history.back()
+    // window.history.back()
+    delete this.show
+    this.location.back()
   }
 
 

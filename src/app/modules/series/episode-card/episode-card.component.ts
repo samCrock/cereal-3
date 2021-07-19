@@ -4,6 +4,7 @@ import {TorrentService} from '../../../services/torrent.service';
 import {ElectronService} from 'ngx-electron';
 import {ScraperService} from '../../../services/scraper.service';
 import {DataService} from '../../../data.service';
+import {ToastController} from '@ionic/angular';
 
 @Component({
   selector: 'app-episode-card',
@@ -33,7 +34,8 @@ export class EpisodeCardComponent implements OnInit, OnDestroy {
     private electronService: ElectronService,
     private scraperService: ScraperService,
     private dataService: DataService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    public toastController: ToastController
   ) {
     this.path = this.electronService.remote.getGlobal('path')
     this.app = this.electronService.remote.getGlobal('app')
@@ -83,9 +85,18 @@ export class EpisodeCardComponent implements OnInit, OnDestroy {
       })
     } else {
       this.scraperService.fetchEpisodeTorrents(ep)
-        .subscribe(torrents => {
-          console.log('Torrents', torrents)
-          this.downloadEpisode(torrents[0])
+        .subscribe(async torrents => {
+            console.log('Torrents', torrents)
+            if (torrents.length) {
+                this.downloadEpisode(torrents[0])
+            } else {
+                this.loading = false
+                const toast = await this.toastController.create({
+                    message: 'No torrents available for this episode',
+                    duration: 5000
+                });
+                toast.present()
+            }
         })
     }
 
