@@ -13,7 +13,7 @@ export class CalendarComponent implements OnInit {
 
   days: any[]
   page = 0
-  @ViewChild(IonContent, {read: IonContent, static: false}) calendarContainer: IonContent;
+  @ViewChild(IonContent, {read: IonContent, static: false}) calendarContainer: IonContent
 
   constructor(
     private scraperService: ScraperService

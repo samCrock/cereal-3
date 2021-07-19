@@ -16,10 +16,7 @@
           [ngStyle]="{'background-image': 'url(' + show.banner + ')'}" (click)="navigateFromCalendar()">
   <ion-card-content class="hover-content">
     <ion-row class="ion-align-items-center">
-      <ion-card-title>{{ show.title }}</ion-card-title>
-      <ion-card-subtitle class="ion-padding-start" *ngIf="show['episode_label']">
-        <span style="font-size: 20px;">{{ show['episode_label'] }}</span>
-      </ion-card-subtitle>
+      <ion-card-title class="ellipsis-1">{{ show.title }} <span style="font-size: 18px;">{{ show['episode_label'] }}</span></ion-card-title>
     </ion-row>
   </ion-card-content>
 </ion-card>

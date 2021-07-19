@@ -1,9 +1,7 @@
 app-series-detail {
   .scroll-container {
     height: calc(100vh - 375px);
-    //overflow-y: hidden;
     overflow-y: auto;
-
 
     &::-webkit-scrollbar {
       width: 16px;

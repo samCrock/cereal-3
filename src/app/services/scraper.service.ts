@@ -167,7 +167,7 @@ export class ScraperService {
           })
         })
         return observer.next(torrents
-          .filter(t => t.dn.indexOf(watching.season_label + watching.episode_label) > -1 )
+          .filter(t => t.dn.indexOf(watching.season_label + watching.episode_label) > -1)
           .sort((a, b) => (parseInt(b.seeds, 10) > parseInt(a.seeds, 10)) ? 1 :
             ((parseInt(a.seeds, 10) > parseInt(b.seeds, 10)) ? -1 : 0))
           .slice(0, 5))
@@ -233,10 +233,13 @@ export class ScraperService {
           const date = moment()
           date.set('date', parseInt(dd, 10))
           date.set('months', parseInt(mm, 10) - 1)
-          daysData.push({
-            date,
-            episodes
-          })
+          const duration = moment.duration(date.diff(moment())).asDays();
+          if (moment.duration(date.diff(moment())).asDays() < 1) {
+            daysData.push({
+              date,
+              episodes
+            })
+          }
         })
         return observer.next(daysData.reverse())
       })

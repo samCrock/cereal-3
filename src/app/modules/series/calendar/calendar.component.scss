@@ -1,4 +1,37 @@
 app-calendar {
+
+  .scroll-container {
+    overflow-y: auto;
+    max-height: calc(100vh - 60px);
+    margin-top: 28px;
+
+    &::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    &::-webkit-scrollbar-corner {
+      background: rgba(20, 20, 20, .6);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      //border-radius: 6px;
+      border: 1px solid rgba(20, 20, 20, .6);
+      background-clip: content-box;
+      min-width: 20px;
+      max-width: 20px;
+      min-height: 32px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: rgba(20, 20, 20, .6);
+    }
+  }
+
+  .day-container {
+    margin-bottom: 40px;
+  }
+
   .day {
     font-size: 30px;
     font-weight: 600;

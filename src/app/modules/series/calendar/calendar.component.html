@@ -1,13 +1,13 @@
-<ion-header style="top: 52px;"></ion-header>
+<ion-header></ion-header>
 
 <ion-content class="ion-padding" #calendarContainer>
 
-  <ion-grid style="margin-top: 40px;">
+  <ion-grid class="scroll-container">
     <ion-col class="ion-justify-content-center" *ngFor="let day of days">
       <ion-item class="ion-padding-top day" [id]="(day.date | date: 'dd-MMM')">
         {{ day.date | date: 'dd MMM' }} <label class="day-time-ago" [ngClass]="">{{ day.date | dateAgo }}</label>
       </ion-item>
-      <ion-row>
+      <ion-row class="day-container">
         <ion-col *ngFor="let episode of day.episodes" class="card-container ion-margin-bottom" size="auto">
           <app-preview-card [show]="episode"></app-preview-card>
         </ion-col>
@@ -15,11 +15,11 @@
     </ion-col>
   </ion-grid>
 
-<!--  <ion-infinite-scroll threshold="100px" (ionInfinite)="onScroll($event)">-->
-<!--    <ion-infinite-scroll-content-->
-<!--      loadingSpinner="bubbles"-->
-<!--      loadingText="Loading more data...">-->
-<!--    </ion-infinite-scroll-content>-->
-<!--  </ion-infinite-scroll>-->
+  <!--  <ion-infinite-scroll threshold="100px" (ionInfinite)="onScroll($event)">-->
+  <!--    <ion-infinite-scroll-content-->
+  <!--      loadingSpinner="bubbles"-->
+  <!--      loadingText="Loading more data...">-->
+  <!--    </ion-infinite-scroll-content>-->
+  <!--  </ion-infinite-scroll>-->
 
 </ion-content>
