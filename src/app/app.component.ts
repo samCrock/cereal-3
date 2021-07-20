@@ -23,8 +23,10 @@ export class AppComponent implements OnInit {
   public updateReady: boolean;
   public fs = this.electronService.remote.getGlobal('fs');
   public app = this.electronService.remote.getGlobal('app');
+  public shell = this.electronService.remote.getGlobal('shell');
   public path = this.electronService.remote.getGlobal('path');
   public browserWindow = this.electronService.remote.getGlobal('browserWindow');
+  public exec = this.electronService.remote.getGlobal('exec');
 
   currentRoute = ''
   seriesRoutes = ['discover', 'calendar', 'my-list']
@@ -63,9 +65,14 @@ export class AppComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     if (this.update) {
       console.log('A new version is ready to download..');
+      const startDownloadToast = await this.toastController.create({
+        message: 'Downloading update',
+        duration: 5000
+      });
+      startDownloadToast.present()
       this.http.get('https://github.com/samCrock/cereal-3/raw/win-build/Cereal Setup ' + this.remoteVersion + '.exe',
         {responseType: 'arraybuffer', reportProgress: true, observe: 'events'})
         .subscribe(async (event: any) => {
@@ -83,13 +90,24 @@ export class AppComponent implements OnInit {
                 return
               }
               console.log('File is ready:', installerPath);
-              console.log('File saved')
 
-              const toast = await this.toastController.create({
-                message: 'A new version is available here:' + installerPath,
-                duration: 5000
-              });
-              toast.present()
+              const that = this
+              const finishedDownloadToast = await this.toastController.create({
+                message: 'A new version is available here',
+                duration: 0,
+                buttons: [
+                  {
+                    text: 'Install',
+                    role: 'cancel',
+                    handler() {
+                      that.exec(that.path.join(that.app.getPath('downloads'), 'Cereal Setup ' + that.remoteVersion + '.exe'), (err, data) => {
+                        that.app.exit(0)
+                      })
+                    }
+                  }
+                ]
+              })
+              finishedDownloadToast.present()
             })
             this.updateReady = true;
             delete this.updateProgress;

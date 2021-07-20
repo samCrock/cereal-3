@@ -5,6 +5,7 @@ const BrowserWindow = electron.BrowserWindow
 const webtorrent = require('webtorrent')
 const fs = require('fs');
 const fetch = require('node-fetch');
+const exec = require('child_process').execFile;
 
 global['wt'] = new webtorrent();
 global['path'] = path;
@@ -12,6 +13,7 @@ global['app'] = app;
 global['fs'] = fs;
 global['shell'] = electron.shell;
 global['browserWindow'] = BrowserWindow
+global['exec'] = exec
 
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = true
 let win
