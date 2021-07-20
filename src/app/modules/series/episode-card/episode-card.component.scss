@@ -82,7 +82,6 @@ app-episode-card {
   .episode-container {
     position: relative;
     transition: transform 500ms;
-    width: 600px;
     background-size: cover !important;
 
     &.selected {

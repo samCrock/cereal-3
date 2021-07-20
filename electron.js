@@ -11,6 +11,7 @@ global['path'] = path;
 global['app'] = app;
 global['fs'] = fs;
 global['shell'] = electron.shell;
+global['browserWindow'] = BrowserWindow
 
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = true
 let win
@@ -74,6 +75,8 @@ function createWindow() {
     width: 1800,
     height: 1200,
     center: true,
+    // fullscreen: true,
+    frame: false,
     // icon: path.join(__dirname, './resources/electron/icons/64x64.png'),
     webPreferences: {
       nodeIntegration: true,
@@ -85,7 +88,7 @@ function createWindow() {
     }
   })
 
-  win.setMenu(null)
+  win.removeMenu()
 
   if (serve) {
     win.loadURL('http://localhost:4200')

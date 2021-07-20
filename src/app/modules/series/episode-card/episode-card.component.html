@@ -1,6 +1,6 @@
 <ion-row [id]="'episode-' + episode.number" class="main-container" [ngClass]="{ 'current': isCurrentEpisode }">
 
-  <div class="episode-container"
+  <ion-col size="4" size-xl="3" class="episode-container"
        [ngStyle]="{'background': episode.cover ?
        'linear-gradient(to top, rgb(18, 18, 18), transparent), url(' + episode.cover + ')' :
        'linear-gradient(to top, rgb(18, 18, 18), rgba(44,34, 44,.9))'}">
@@ -28,7 +28,7 @@
     </ion-row>
     <ion-progress-bar class="progress-bar" [value]="progress"
                       *ngIf="episode.progress && episode.progress !== 1"></ion-progress-bar>
-  </div>
+  </ion-col>
 
   <ion-col class="extra-container" [ngClass]="{ 'selected': opened }">
 

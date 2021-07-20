@@ -246,14 +246,6 @@ export class ScraperService {
     })
   }
 
-  // private getEpisodeSlug(sNumber, eNumber): string {
-  //   let slug = 'S'
-  //   slug += sNumber < 10 ? '0' + sNumber : sNumber
-  //   slug += ' E'
-  //   slug += eNumber < 10 ? '0' + eNumber : eNumber
-  //   return slug
-  // }
-
   searchSeries(searchString): Observable<any> {
     const url = 'https://api.reelgood.com/v3.0/content/search/typeahead?region=us&terms=' + searchString
     return new Observable(observer => {
@@ -287,6 +279,33 @@ export class ScraperService {
         return observer.next(JSON.parse(<string>res))
       })
     })
+  }
+
+  public fetchTrailerLink(title): Observable<any> {
+    const url = 'https://www.youtube.com/results?search_query=' + title + '+trailer'
+    return from(fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      redirect: 'follow',
+      referrerPolicy: 'no-referrer',
+    }))
+      .pipe(map(response => {
+          return from(response.json())
+            .pipe(map(fetchedSeason => {
+                // @ts-ignore
+                const $ = cheerio.load(response, {_useHtmlParser2: true});
+                const link = $('#video-title')
+                console.log(link)
+                return link
+              })
+            )
+        })
+      )
   }
 
 

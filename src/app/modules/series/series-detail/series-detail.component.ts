@@ -28,25 +28,25 @@ export class SeriesDetailComponent implements OnInit {
     private router: Router,
     private location: Location
   ) {
-    this.routerSub = this.activeRoute.params.subscribe(async params => {
-      if (params['id']) {
-        const dbShow = await this.data.retrieveShow(params['id'])
-        if (dbShow) {
-          this.currentSeason = dbShow.currentSeason ? dbShow.currentSeason : this.currentSeason
-          this.currentEpisode = dbShow.currentEpisode ? dbShow.currentEpisode : this.currentEpisode
-          console.log('currentEpisode', this.currentEpisode)
+    this.routerSub = this.activeRoute.params
+      .subscribe(async params => {
+        if (params['id']) {
+          const dbShow = await this.data.retrieveShow(params['id'])
+          if (dbShow) {
+            this.currentSeason = dbShow.currentSeason ? dbShow.currentSeason : this.currentSeason
+            this.currentEpisode = dbShow.currentEpisode ? dbShow.currentEpisode : this.currentEpisode
+            console.log('currentEpisode', this.currentEpisode)
+          }
+          this.scraperService.fetchSeriesById(params['id'])
+            .subscribe(async show => {
+              console.log('Show', show)
+              this.show = show
+              this.show.poster = 'https://img.reelgood.com/content/show/' + show.id + '/poster-780.jpg'
+              this.seasonsArray = new Array(show.season_count)
+              this.fetchSeason()
+            })
         }
-        this.scraperService.fetchSeriesById(params['id'])
-          .subscribe(async show => {
-            console.log('Show', show)
-            this.show = show
-            this.show.poster = 'https://img.reelgood.com/content/show/' + show.id + '/poster-780.jpg'
-            this.seasonsArray = new Array(show.season_count)
-            this.fetchSeason()
-          })
-      }
-    })
-
+      })
   }
 
   ngOnInit() {
@@ -66,8 +66,7 @@ export class SeriesDetailComponent implements OnInit {
               const seasonRow = document.getElementById(this.season.id)
               console.log('Scroll to currentEpisode', currentEpisodeCard.getBoundingClientRect().y)
               seasonRow.scrollTo({
-                top: currentEpisodeCard.getBoundingClientRect().y - 380,
-                // left: currentEpisodeCard.getBoundingClientRect().x - 28,
+                top: currentEpisodeCard.getBoundingClientRect().y - 420,
                 left: 0,
                 behavior: 'auto'
               })
