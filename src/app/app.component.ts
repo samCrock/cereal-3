@@ -109,7 +109,7 @@ export class AppComponent implements OnInit {
 
               const that = this
               const finishedDownloadToast = await this.toastController.create({
-                message: 'A new version is available',
+                message: 'A new version is ready',
                 duration: 0,
                 buttons: [
                   {
