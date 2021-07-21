@@ -2,8 +2,7 @@ app-calendar {
 
   .scroll-container {
     overflow-y: auto;
-    max-height: calc(100vh - 116px);
-    margin-top: 28px;
+    max-height: calc(100vh - 126px);
 
     &::-webkit-scrollbar {
       width: 16px;

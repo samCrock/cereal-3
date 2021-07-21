@@ -14,6 +14,7 @@ import {CommonModule} from '@angular/common';
 import {ElectronService} from 'ngx-electron';
 import {NgxElectronModule} from 'ngx-electron';
 import {SharedModule} from './modules/shared/shared.module';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {SharedModule} from './modules/shared/shared.module';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    NgxElectronModule
+    NgxElectronModule,
+    FormsModule
   ],
   providers: [
     StatusBar,

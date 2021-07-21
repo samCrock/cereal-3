@@ -1,10 +1,10 @@
 app-discover {
 
-
   .scroll-container {
 
-    max-height: calc(100vh - 116px);
+    max-height: calc(100vh - 156px);
     overflow-y: auto;
+    padding-top: 20px;
 
     &::-webkit-scrollbar {
       width: 16px;
@@ -28,6 +28,10 @@ app-discover {
       background-color: rgba(20, 20, 20, .6);
     }
 
+  }
+
+  ion-list {
+    width: fit-content;
   }
 
 }

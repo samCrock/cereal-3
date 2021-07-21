@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core'
 
-import {MenuController, Platform, ToastController} from '@ionic/angular'
+import {MenuController, NavController, Platform, ToastController} from '@ionic/angular'
 import {SplashScreen} from '@ionic-native/splash-screen/ngx'
 import {StatusBar} from '@ionic-native/status-bar/ngx'
 import {DataService} from './data.service'
@@ -8,6 +8,8 @@ import {ElectronService} from 'ngx-electron';
 import {NavigationEnd, Router, RouterEvent} from '@angular/router';
 import {HttpClient, HttpEventType} from '@angular/common/http';
 import {filter} from 'rxjs/operators';
+import {ScraperService} from './services/scraper.service';
+import {SearchService} from './services/search.service';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +32,8 @@ export class AppComponent implements OnInit {
 
   currentRoute = ''
   seriesRoutes = ['discover', 'calendar', 'my-list']
-
+  public searchString = ''
+  public searched: boolean
 
   constructor(
     private platform: Platform,
@@ -41,7 +44,10 @@ export class AppComponent implements OnInit {
     private electronService: ElectronService,
     private http: HttpClient,
     public toastController: ToastController,
-    private menu: MenuController
+    private menu: MenuController,
+    private scraperService: ScraperService,
+    private navController: NavController,
+    private searchService: SearchService
   ) {
     this.initializeApp()
 
@@ -49,12 +55,22 @@ export class AppComponent implements OnInit {
     router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((val) => {
-        this.currentRoute = val instanceof RouterEvent ? val.url.split('/').pop() : ''
-        if (val instanceof RouterEvent && val.url.split('/').length > 2 &&
-          this.seriesRoutes.indexOf(val.url.split('/')[2]) === -1) {
-          this.currentRoute = ''
+        if (val instanceof RouterEvent) {
+          this.currentRoute = val.url.split('/').pop()
+          if (this.currentRoute !== 'discover') {
+            this.searched = false
+          }
+          if (val instanceof RouterEvent && val.url.split('/').length > 2 &&
+            this.seriesRoutes.indexOf(val.url.split('/')[2]) === -1) {
+            this.currentRoute = ''
+          }
         }
+
       })
+
+    this.searchService.searchResults.subscribe(searchResults => {
+      this.searched = !!searchResults.length
+    })
 
     // console.log(this.electronService.ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
     //
@@ -100,9 +116,10 @@ export class AppComponent implements OnInit {
                     text: 'Install',
                     role: 'cancel',
                     handler() {
-                      that.exec(that.path.join(that.app.getPath('downloads'), 'Cereal Setup ' + that.remoteVersion + '.exe'), (err, data) => {
-                        that.app.exit(0)
-                      })
+                      that.exec(that.path.join(that.app.getPath('downloads'), 'Cereal Setup ' + that.remoteVersion + '.exe'),
+                        (e, data) => {
+                          that.app.exit(0)
+                        })
                     }
                   }
                 ]
@@ -128,7 +145,7 @@ export class AppComponent implements OnInit {
         this.splashScreen.hide()
       }
 
-      this.router.navigate(['series']) // TODO remove when movies section is ready
+      // this.router.navigate(['series'])
 
       this.data.setup()
         .then(info => {
@@ -159,5 +176,22 @@ export class AppComponent implements OnInit {
       this.menu.open('first')
     }
   }
+
+
+  search() {
+    if (this.searchString) {
+      this.searchService.searchSeries(this.searchString).subscribe(() => {
+        this.router.navigate(['/series', 'discover'])
+      })
+    } else {
+      this.searchService.searchResults.next([])
+      this.router.navigate(['/series', 'discover'])
+    }
+  }
+
+  navigateTo(route) {
+    this.navController.navigateRoot(route)
+  }
+
 
 }

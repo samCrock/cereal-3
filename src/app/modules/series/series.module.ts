@@ -3,7 +3,6 @@ import {RouterModule} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {SeriesPage} from './series.page';
 import {PreviewCardComponent} from '../shared/components/preview-card/preview-card.component';
 import {SeriesDetailComponent} from './series-detail/series-detail.component';
 import {EpisodeCardComponent} from './episode-card/episode-card.component';
@@ -21,22 +20,20 @@ import {CalendarComponent} from './calendar/calendar.component';
     RouterModule.forChild([
       {
         path: '',
-        component: SeriesPage,
-        children: [
-          { path: '', redirectTo: 'discover' },
-          {
-            path: 'discover',
-            component: DiscoverComponent
-          },
-          {
-            path: 'my-list',
-            component: MyListComponent
-          },
-          {
-            path: 'calendar',
-            component: CalendarComponent
-          }
-        ]
+        redirectTo: 'discover',
+        pathMatch: 'full'
+      },
+      {
+        path: 'discover',
+        component: DiscoverComponent
+      },
+      {
+        path: 'my-list',
+        component: MyListComponent
+      },
+      {
+        path: 'calendar',
+        component: CalendarComponent
       },
       {
         path: ':id',
@@ -45,7 +42,6 @@ import {CalendarComponent} from './calendar/calendar.component';
     ])
   ],
   declarations: [
-    SeriesPage,
     SeriesDetailComponent,
     PreviewCardComponent,
     EpisodeCardComponent,

@@ -1,10 +1,52 @@
 app-root {
 
-  ion-toolbar {
+  .draggable {
     -webkit-app-region: drag;
   }
 
   ion-button {
     -webkit-app-region: no-drag;
   }
+
+  .searchbar-search-icon {
+    display: none !important;
+    width: 0;
+    height: 0;
+  }
+
+  .searchbar-input.sc-ion-searchbar-ios {
+    padding-right: 38px;
+  }
+
+  ion-searchbar {
+    width: 300px !important;
+    margin-right: -50px;
+    input {
+      padding-left: 12px !important;
+    }
+  }
+
+  .search-btn {
+    margin-right: 10px;
+  }
+
+  ion-toolbar.sc-ion-searchbar-ios-h, ion-toolbar .sc-ion-searchbar-ios-h {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    height: 38px;
+  }
+
+  .route-buttons {
+    margin-top: 6px;
+  }
+
+  .sc-ion-buttons-ios-s ion-icon[slot=icon-only] {
+    font-size: 24px !important;
+  }
+
+  .sub-nav {
+    height: 50px !important;
+  }
+
+
 }

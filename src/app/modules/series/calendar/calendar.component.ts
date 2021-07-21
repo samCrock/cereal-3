@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {ScraperService} from '../../../services/scraper.service';
 import * as moment from 'moment';
 import {IonContent} from '@ionic/angular';
@@ -16,7 +16,8 @@ export class CalendarComponent implements OnInit {
   @ViewChild(IonContent, {read: IonContent, static: false}) calendarContainer: IonContent
 
   constructor(
-    private scraperService: ScraperService
+    private scraperService: ScraperService,
+    private cd: ChangeDetectorRef
   ) {
   }
 
