@@ -103,7 +103,7 @@ export class DiscoverComponent implements OnInit, AfterViewInit, OnDestroy {
     console.log('applyFilters', event)
     this.shows = []
     this.filters.platform = event.detail.value
-    await this.fetchTrending()
+    this.shows = await this.fetchTrending()
   }
 
 

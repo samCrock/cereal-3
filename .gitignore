@@ -21,4 +21,4 @@ www/
 release/
 platforms/
 app.db/
-.idea
+.idea/*
