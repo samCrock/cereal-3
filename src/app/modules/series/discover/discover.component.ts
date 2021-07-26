@@ -20,7 +20,7 @@ export class DiscoverComponent implements OnInit, AfterViewInit, OnDestroy {
     platform: ''
   }
   public searchResults: Observable<any>
-  public showFilters = true
+  public showFilters = false
   public searchSub: Subscription
 
   constructor(
@@ -55,15 +55,10 @@ export class DiscoverComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.scroller?.el.addEventListener('scroll', this.debounce(() => {
       const scrollY = this.scroller.el.scrollHeight - this.scroller.el.scrollTop - this.scroller.el.getBoundingClientRect().height;
-      if (scrollY < 200) {
+      if (scrollY < 200 && scrollY >= 0) {
         this.onScroll();
       }
     }, 300))
-  }
-
-  toggleMenu() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
   }
 
   fetchTrending(): Promise<IShow[]> {
@@ -94,7 +89,7 @@ export class DiscoverComponent implements OnInit, AfterViewInit, OnDestroy {
       .subscribe(response => {
         response.subscribe(results => {
           this.shows.push(...results);
-          console.log('', results)
+          console.log('scroll', results)
         })
       })
   }
@@ -102,6 +97,10 @@ export class DiscoverComponent implements OnInit, AfterViewInit, OnDestroy {
   async applyFilters(event) {
     console.log('applyFilters', event)
     this.shows = []
+    this.filters = {
+      page: 0,
+      platform: ''
+    }
     this.filters.platform = event.detail.value
     this.shows = await this.fetchTrending()
   }

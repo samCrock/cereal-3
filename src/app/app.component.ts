@@ -3,7 +3,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core'
 import {MenuController, NavController, Platform, ToastController} from '@ionic/angular'
 import {SplashScreen} from '@ionic-native/splash-screen/ngx'
 import {StatusBar} from '@ionic-native/status-bar/ngx'
-import {DataService} from './data.service'
+import {DataService} from './services/data.service'
 import {ElectronService} from 'ngx-electron';
 import {NavigationEnd, Router, RouterEvent} from '@angular/router';
 import {HttpClient, HttpEventType} from '@angular/common/http';
@@ -190,6 +190,7 @@ export class AppComponent implements OnInit {
   }
 
   navigateTo(route) {
+    this.searchService.searchResults.next([])
     this.navController.navigateRoot(route)
   }
 

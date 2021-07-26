@@ -3,7 +3,7 @@ import * as moment from 'moment';
 import {TorrentService} from '../../../services/torrent.service';
 import {ElectronService} from 'ngx-electron';
 import {ScraperService} from '../../../services/scraper.service';
-import {DataService} from '../../../data.service';
+import {DataService} from '../../../services/data.service';
 import {ToastController} from '@ionic/angular';
 
 @Component({

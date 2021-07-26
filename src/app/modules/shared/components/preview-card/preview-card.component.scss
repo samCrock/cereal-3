@@ -35,6 +35,7 @@ app-preview-card {
     color: var(--ion-color-light-contrast);
     font-size: 20px;
     font-weight: 600;
+    line-height: 44px;
   }
 
   ion-card-subtitle {
@@ -45,6 +46,12 @@ app-preview-card {
   .imdb-logo {
     width: 50px;
     padding-right: 8px;
+  }
+
+  .watching-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 
 

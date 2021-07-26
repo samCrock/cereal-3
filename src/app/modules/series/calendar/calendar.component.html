@@ -6,7 +6,7 @@
         {{ day.date | date: 'dd MMM' }} <label class="day-time-ago" [ngClass]="">{{ day.date | dateAgo }}</label>
       </ion-item>
       <ion-row class="day-container">
-        <ion-col *ngFor="let episode of day.episodes" class="card-container ion-margin-bottom" size="auto">
+        <ion-col *ngFor="let episode of day.episodes" class="ion-margin-bottom" size="auto">
           <app-preview-card [show]="episode"></app-preview-card>
         </ion-col>
       </ion-row>

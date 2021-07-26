@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
-import {DataService} from '../../../data.service';
+import {DataService} from '../../../services/data.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ScraperService} from '../../../services/scraper.service';
 import {IShow} from '../../../models/show.interface';

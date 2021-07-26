@@ -91,6 +91,7 @@ function createWindow() {
   })
 
   win.removeMenu()
+  win.maximize()
 
   if (serve) {
     win.loadURL('http://localhost:4200')

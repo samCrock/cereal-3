@@ -1,13 +1,13 @@
 import {Injectable} from '@angular/core'
 import {Platform} from '@ionic/angular'
-import {ElectronService} from './electron.service'
-import {EventService} from './events.service'
+import {ElectronService} from '../electron.service'
+import {EventService} from '../events.service'
 import * as PouchDB from 'pouchdb/dist/pouchdb'
 import SecurePouch from 'polyonic-secure-pouch'
 import cordovaSqlitePlugin from 'pouchdb-adapter-cordova-sqlite'
 import * as moment from 'moment';
-import {IShow} from './models/show.interface';
-import {IEpisode} from './models/episode.interface';
+import {IShow} from '../models/show.interface';
+import {IEpisode} from '../models/episode.interface';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -150,6 +150,16 @@ export class DataService {
         } else {
           throw err;
         }
+      })
+  }
+
+  public async isWatching(showId) {
+    return await this.db.get(showId)
+      .then(function (doc) {
+        return true
+      })
+      .catch(function (err) {
+        return false
       })
   }
 

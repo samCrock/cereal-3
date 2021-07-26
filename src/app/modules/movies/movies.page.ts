@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { ElectronService } from '../../electron.service'
-import { DataService } from '../../data.service'
+import { DataService } from '../../services/data.service'
 import { EventService } from '../../events.service'
 
 @Component({

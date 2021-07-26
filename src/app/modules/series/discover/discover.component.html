@@ -1,4 +1,4 @@
-<ion-list mode="ios" class="ion-margin" *ngIf="showFilters">
+<ion-list mode="ios" class="ion-margin-horizontal" *ngIf="showFilters">
   <ion-item>
     <ion-select value="All" okText="OK" cancelText="Cancel" [(ngModel)]="filters.platform"
                 (ionChange)="applyFilters($event)">
@@ -18,7 +18,7 @@
 
 <ion-grid>
   <ion-row class="ion-justify-content-center scroll-container" #scroller>
-    <ion-col *ngFor="let s of shows" class="card-container ion-margin-bottom" size="auto">
+    <ion-col *ngFor="let s of shows" class="ion-margin-bottom" size="auto">
       <app-preview-card [show]="s"></app-preview-card>
     </ion-col>
   </ion-row>

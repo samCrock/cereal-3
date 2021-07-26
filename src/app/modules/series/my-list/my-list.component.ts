@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {IShow} from '../../../models/show.interface';
-import {DataService} from '../../../data.service';
+import {DataService} from '../../../services/data.service';
 
 @Component({
   selector: 'app-my-list',
